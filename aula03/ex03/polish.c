@@ -2,34 +2,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void reversed_polish_notation (char *c) {
+void reversed_polish_notation (char *c){
         Stack *s = create(strlen(c));
         Stack *aux = create(strlen(c));
-        char vetor[strlen(c)];
+        Stack *polish = create(strlen(c));
         int i = 0;
         char elem;
-        //enquanto n chegar no elemento terminal
-        while (c[i] != '\0') {
-                elem = pop(s);
-
+        //enquanto nao chegar no elemento terminal
+        while (get_peek(s) != '\0' && !empty) {
+		//analisando o elemento do topo
+                elem = get_peek(s);
+		printf("%char", elem);
                 //se o elemento em peek for um sinal, empilha ele na stack auxiliar
                 if (elem >= 42 && elem <= 47){
-                        push (aux, elem);
+		      	push (aux, elem);
                 }
-                //se for um numero, coloco no vetor
+                //se for um numero, coloco na pilha
                 else if (elem >= '0' && elem <= '9'){
+			push (polish, elem);
+		}
+		//se for um ')' ele tira o peek da pilha auxiliar e coloca na pilha polish
+		else if (elem == ')'){
+		//	pop (aux);
+			push (polish, elem);
+		}
+	i++;
+	}
 
-
-
-
-
-
-
-
-        i++;
-        }
-        printf("\n");
-        destroy(s);
+	print(polish);
+	printf("\n");
+	destroy(s);
+	destroy(aux);
+	destroy(polish);
+	
 }
 
 int main () {
