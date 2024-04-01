@@ -15,7 +15,7 @@ void destroy (Queue *q) {
 
 int empty (Queue *q) {
 	//cabeça aponta para NULL
-	return (q->next == NULL);
+	return (q == NULL);
 }
 
 Queue* enqueue (Queue *q, int elem) {
@@ -51,21 +51,24 @@ Queue* enqueue (Queue *q, int elem) {
 Queue* dequeue (Queue *q) {
   /*Remove o elemento (free) do início da lista. Remove a cabeca e a nova cabeca vira ->next*/	
 	 if (empty(q)) {
-   	 	printf ("error: queue underflow!\n");
-    		exit(1);
-  	}
+		printf ("Queue underflow");
+		exit(1);
+	}
 	Queue *t = q;
 	q = t->next;
+	free(t);
+	return q;
 }
 
 int get_front (Queue *q) {
   /*Retorna a informação (data) armazenada no início da lista.*/	
-	return (q-> data);
+	if (!empty(q)){
+		return (q-> data);
 }
 
 void print (Queue *q) {	
   	Queue *t;
- 	printf ("List: ");
+ 	printIf ("List: ");
  	for (t = q; t != NULL; t = t->next){
     		printf ("%d ", t->data);
   		printf("\n");

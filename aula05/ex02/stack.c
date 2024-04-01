@@ -6,13 +6,16 @@ Stack* create () {
 
 void destroy (Stack *s) {
   while (s != NULL) {
-    /*Terminar*/
+        Stack *t = s->next;
+        free (s);
+        s = t;
+
   }	  
 }
 
 Stack* push (Stack *s, int elem) {
-  /*Terminar*/
-  /*Cria um elemento (malloc) e insere no início da lista.*/	
+
+
 }
 
 Stack* pop (Stack *s) {
