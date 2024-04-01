@@ -2,7 +2,15 @@
 
 /* */
 int sum (List *l) {
-  /*Terminar!*/	
+  	//iterador usado para manipular a lista l sem perder o cabecalho
+	// movimento i mas n movimento l
+	List *i;
+	int soma = 0;
+	
+	for (i = l; i != NULL; i = i->next){
+		soma += i->data;
+	}
+	return soma;	
 }
 
 /* */
