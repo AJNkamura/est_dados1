@@ -2,7 +2,12 @@
 
 /* */
 int in (List *l, int k) {
-  /*Terminar!*/	
+	List* flag = search (l, k);
+	if (flag != NULL)
+		return 1;
+	else
+		return 0;
+
 }
 
 /* */
