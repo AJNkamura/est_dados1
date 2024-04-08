@@ -2,7 +2,13 @@
 
 /* */
 int size (List *l) {
-  /*Terminar*/	
+	//a cabeca ja eh 1, toda vez que ela vai para frente, soma 1 sempre
+	if (l != NULL){
+		return (1 + size(l->next));
+	}
+	else
+		return 0;
+
 }
 
 /* */
