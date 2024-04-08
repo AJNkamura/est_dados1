@@ -3,7 +3,17 @@
 
 /* */
 int in (List *l, int k) {
-  /*Terminar.*/	
+	
+	if (l != NULL){
+		if (l -> data == k){
+			return 1;
+		}
+		//se existe um l-> data mas eh diferente de k, continua a procurar
+		else
+			return in(l-> next, k);
+	}
+	else
+		return 0;
 }
 
 /* */
