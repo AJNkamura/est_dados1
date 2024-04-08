@@ -2,7 +2,13 @@
 
 /* */
 int sum (List *l) {
-  /*Terminar.*/	
+	//Comeco com o valor da cebeca e somo o proximo ao chamar a funcao novamente 
+	if (l != NULL) {
+		return l->data + sum(l->next);
+
+	}
+	else
+		return 0;
 }
 
 /* */
