@@ -3,7 +3,13 @@
 
 /* */
 int position (List *l, int k) {
-  /*Terminar*/
+	int r = positin (l->next, k);
+
+	if
+	...
+	else
+	..
+
 }
 
 /* */
