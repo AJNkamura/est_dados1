@@ -3,13 +3,20 @@
 
 /* */
 int position (List *l, int k) {
-	int r = positin (l->next, k);
 
-	if
-	...
-	else
-	..
-
+	if (l != NULL) {
+        if (l->data == k)
+            return 0;
+        else {
+            int aux = position(l->next, k);
+            if (aux == -1)
+                return -1;
+            else
+                return 1 + aux;
+        }
+    }
+    else
+        return -1;
 }
 
 /* */
