@@ -2,8 +2,24 @@
 
 /* */
 List* merge (List *A, List *B) {
-  /*Terminar.*/	
+	if (A != NULL && B != NULL) {
+        	if (A->data <= B->data) {
+            		A->next = merge(A->next, B);
+            		return A;
+        	}
+        	else {
+            		B->next = merge(B->next, A);
+            		return B;
+        	}
+    }
+    else if (A != NULL) {
+        return A;
+    }
+    else
+        return B;
+        
 }
+
 
 /* */
 int main () {
