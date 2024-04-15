@@ -30,7 +30,8 @@ Deque* insert_front (Deque *d, Point p, char field[][SIZE]) {
 
 /* */
 Deque* insert_back (Deque *d, Point p, char field[][SIZE]) {
-  /*Terminar!*/	
+	
+
 }
 
 /* */
