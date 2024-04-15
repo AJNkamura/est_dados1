@@ -1,7 +1,17 @@
 #include "list.h"
 
 List* split (List *l, List *x, List *y) {
-  /*Terminar!*/	
+	List *novaLista = x;
+	
+	//tirar o conteudo, X aponta para o proximo numero depois de Y e vice-versa
+	x->prev->next = y->next;
+	y->next->prev = x->prev;
+	
+	x->prev = NULL;
+	y->next = NULL;
+	return x;
+	
+
 }
 
 int main () {
