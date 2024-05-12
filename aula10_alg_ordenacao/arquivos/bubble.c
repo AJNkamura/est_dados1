@@ -1,18 +1,18 @@
 #include "utils.h"
 
 /* */
-void insertion_sort (int *A, int n) {
-	int i;
-	for (i = 1; i < n; i++){
-		int chave = A[i];
-		int j = i-1;
-		
-		while ((j >= 0) && (A[j] > chave)){
-			A[j+1] = A[j];
-			j --;
+void bubble_sort (int *A, int n) {
+	int aux;
+	for (int i = 0; i < n; i++){
+		for ( int j = 0; j < n -1 -i; j++){
+			if (A[j] > A[j+1]){
+				aux = A[j];
+				A[j] = A[j+1];
+				A[j+1] = aux;
+			}
 		}
-		A[j+1] = chave;
 	}
+
 }
 
 /* */
@@ -26,7 +26,7 @@ int main (int argc, char *argv[]) {
     printf("run: %s [size]\n", argv[0]);
     exit(1);
   }
-   
+
   int i;
   int n = atoi(argv[1]);
   int range = 10; /*intervalo de valores sorteados*/
@@ -38,7 +38,7 @@ int main (int argc, char *argv[]) {
 
   start = clock();
   print (A, n, "Input");
-  insertion_sort (A, n);
+  bubble_sort (A, n);
   print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;

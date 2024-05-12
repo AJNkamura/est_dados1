@@ -2,16 +2,16 @@
 
 /* */
 void selection_sort (int *A, int n) {
-	int i, j;
-	for (i = 0; i < n; i++){
-		int min = i;
-		for (j = i+1; j < j+1-n; j++){
-		       if (A[min] > A[j]){
-	       			min = j;
-			}		       
+	int min;
+	for (int i = 0; i < n -1; i++){
+		min = i;
+		for ( int j = i+1; j < n; j++){
+			if (A[j] < A[min]){
+				min = j;
+			}
 		}
-		swap (A, i, min);
-	}		
+		swap(A, i, min);
+	}
 }
 
 /* */

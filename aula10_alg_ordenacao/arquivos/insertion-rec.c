@@ -2,7 +2,18 @@
 
 /* */
 void insertion_sort_recursive (int *A, int n) {
-  /*Terminar*/	
+	for ( int i = 1; i < n; i++){
+	       //se a nova carta eh menor
+		if (A[i] < A[i-1]){
+			swap(A, i, i-1);
+			
+			//chamar a funcao recursivamente para org cartas anteriores ate a carta i (atual)
+			if(i > 1){
+				insertion_sort_recursive(A, i);
+			}
+		}
+	}
+	       		       
 }
 
 /* */
