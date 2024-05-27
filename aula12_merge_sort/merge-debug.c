@@ -1,15 +1,35 @@
 #include "utils.h"
 
 /*Função intercala*/
-int merge (int A[], int l, int m, int r, int O[], int rlevel) {
-  
+void merge (int A[], int l, int m, int r, int O[], int lv) {	
+  int i=l, j=m+1, k=l;
+  while ((i<=m) && (j<=r)){
+    if (A[i] <= A[j])
+      O[k++] = A[i++];
+    else
+      O[k++] = A[j++];
+  }
+  while (i<=m)
+    O[k++] = A[i++];
+  while (j<=r)
+    O[k++] = A[j++];
+  for (int j=l; j<=r; j++)
+    A[j] = O[j];
+  partition_print(A, l, r, lv);
 }
 
 /*Função principal do algoritmo Merge-Sort.*/
-void merge_sort (int A[], int l, int r, int O[], int rlevel) {
-
+void merge_sort (int A[], int l, int r, int O[], int lv) {
+  int m = (l+r)/2;
+  for (int count=0; count<lv; count ++)
+    printf("    ");  
+  printf("Merge-Sort(%d,%d,%d)\n", l, m, r);
+  if (l<r){
+    merge_sort(A, l, m, O, lv+1);
+    merge_sort(A, m+1, r, O, lv+1);
+    merge(A, l, m, r, O, lv+1);
+  }
 }
-
 /* */
 int main ( ) {
   clock_t start, end;

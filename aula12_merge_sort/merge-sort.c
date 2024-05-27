@@ -58,9 +58,11 @@ int main (int argc, char *argv[]) {
   int n = atoi(argv[1]);
   //int n = 10; /*teste com 100, 1K, 10K, 1M, 10M*/
   // com 10: 0.00
-  // com 100:
-  // com 1000:
-  // com 10000:
+  // com 100: 0.00
+  // com 1000: 0.00
+  // com 10000: 0.00
+  // com 100000: 0.01
+  //com 10000000: 0.15
 
   int *A = (int *)malloc(n * sizeof(int));
   int *O = (int *)malloc(n * sizeof(int)); /*array auxiliar*/
